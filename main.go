@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+
+	"github.com/ForestFlowerr/portfolio/app/controllers"
 )
 
 func main() {
@@ -13,11 +15,11 @@ func main() {
 	port := os.Getenv("PORT")
 	fmt.Println("Running on PORT::", port)
 
+	hello := controllers.Hello
+
 	// Routes
 	// Print msg "Hello, world!" or "Hello, URL!"
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hello, world!")
-	})
+	http.HandleFunc("/", hello)
 
 	// Start server
 	http.ListenAndServe(":"+port, nil)
