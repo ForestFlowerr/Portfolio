@@ -1,14 +1,12 @@
-{{template "header"}}
+{{template "header" .}}
 
 <h1>APPLY</h1>
-<nav>
-  <ul>
-    <li><a href="/index"></a>Index</a></li>
-    <li><a href="/about"></a>About</a></li>
-    <li><a href="/contact"></a>Contact</a></li>
-    <li><a href="/apply"></a>Apply</a></li>
-  </ul>
-</nav>
+
+{{template "nav-main"}}
+
+{{if .FirstName}}
+Your name is {{.FirstName}}
+{{end}}
 
  <form action="/apply" method="post">
 
