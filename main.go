@@ -18,6 +18,11 @@ func init() {
 }
 
 func main() {
+
+	// Create file server for 'assets/'
+	fs := http.FileServer(http.Dir("app/assets"))
+	http.Handle("/assets/", http.StripPrefix("/assets/", fs))
+
 	http.HandleFunc("/", idx)
 	http.HandleFunc("/about", abot)
 	http.HandleFunc("/contact", cntct)
